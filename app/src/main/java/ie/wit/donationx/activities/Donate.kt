@@ -73,5 +73,6 @@ class Donate : AppCompatActivity() {
         totalDonated = app.donationsStore.findAll().sumOf { it.amount }
         donateLayout.progressBar.progress = totalDonated
         donateLayout.totalSoFar.text = "$$totalDonated"
+
     }
 }
