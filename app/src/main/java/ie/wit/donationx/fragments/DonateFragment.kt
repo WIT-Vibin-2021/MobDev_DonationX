@@ -29,8 +29,8 @@ class DonateFragment : Fragment() {
     private val fragBinding get() = _fragBinding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        app = activity?.application as DonationXApp
         super.onCreate(savedInstanceState)
+        app = activity?.application as DonationXApp
         setHasOptionsMenu(true)
     }
 
