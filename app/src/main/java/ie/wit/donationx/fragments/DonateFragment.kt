@@ -11,16 +11,6 @@ import ie.wit.donationx.databinding.FragmentDonateBinding
 import ie.wit.donationx.main.DonationXApp
 import ie.wit.donationx.models.DonationModel
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [DonateFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class DonateFragment : Fragment() {
 
     lateinit var app: DonationXApp

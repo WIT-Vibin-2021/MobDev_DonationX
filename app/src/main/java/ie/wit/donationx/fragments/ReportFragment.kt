@@ -11,16 +11,6 @@ import ie.wit.donationx.adapters.DonationAdapter
 import ie.wit.donationx.databinding.FragmentReportBinding
 import ie.wit.donationx.main.DonationXApp
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [ReportFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class ReportFragment : Fragment() {
 
     lateinit var app: DonationXApp
@@ -35,8 +25,7 @@ class ReportFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+        savedInstanceState: Bundle?): View? {
         _fragBinding = FragmentReportBinding.inflate(inflater, container, false)
         val root = fragBinding.root
         activity?.title = getString(R.string.action_report)
