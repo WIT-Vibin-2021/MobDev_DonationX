@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/donateFragment"
-        android:name="ie.wit.donationx.fragments.DonateFragment"
+        android:name="ie.wit.donationx.ui.donate.DonateFragment"
         android:label="Donate"
         tools:layout="@layout/fragment_donate" >
         <action
@@ -18,7 +18,7 @@
     </fragment>
     <fragment
         android:id="@+id/reportFragment"
-        android:name="ie.wit.donationx.fragments.ReportFragment"
+        android:name="ie.wit.donationx.ui.report.ReportFragment"
         android:label="Report"
         tools:layout="@layout/fragment_report" >
         <action
@@ -27,7 +27,7 @@
     </fragment>
     <fragment
         android:id="@+id/aboutusFragment"
-        android:name="ie.wit.donationx.fragments.AboutusFragment"
+        android:name="ie.wit.donationx.ui.about.AboutFragment"
         android:label="@string/action_about"
         tools:layout="@layout/fragment_aboutus" />
 </navigation>

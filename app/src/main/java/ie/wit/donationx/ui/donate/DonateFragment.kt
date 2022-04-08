@@ -1,15 +1,17 @@
-package ie.wit.donationx.fragments
+package ie.wit.donationx.ui.donate
 
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
 import android.widget.Toast
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import ie.wit.donationx.R
 import ie.wit.donationx.databinding.FragmentDonateBinding
 import ie.wit.donationx.main.DonationXApp
 import ie.wit.donationx.models.DonationModel
+import androidx.lifecycle.Observer
 
 class DonateFragment : Fragment() {
 
@@ -17,6 +19,8 @@ class DonateFragment : Fragment() {
     var totalDonated = 0
     private var _fragBinding: FragmentDonateBinding? = null
     private val fragBinding get() = _fragBinding!!
+
+    private lateinit var donateViewModel: DonateViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,6 +36,13 @@ class DonateFragment : Fragment() {
         _fragBinding = FragmentDonateBinding.inflate(inflater, container, false)
         val root = fragBinding.root
         activity?.title = getString(R.string.action_donate)
+
+        donateViewModel =
+            ViewModelProvider(this).get(DonateViewModel::class.java)
+        //val textView: TextView = root.findViewById(R.id.text_home)
+        donateViewModel.text.observe(viewLifecycleOwner, Observer {
+            //textView.text = it
+        })
 
         fragBinding.progressBar.max = 10000
         fragBinding.amountPicker.minValue = 1
