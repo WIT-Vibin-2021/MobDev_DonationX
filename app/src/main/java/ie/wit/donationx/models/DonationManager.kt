@@ -8,9 +8,9 @@ internal fun getId(): Long {
     return lastId++
 }
 
-class DonationMemStore : DonationStore {
+object DonationManager : DonationStore {
 
-    val donations = ArrayList<DonationModel>()
+    private val donations = ArrayList<DonationModel>()
 
     override fun findAll(): List<DonationModel> {
         return donations
