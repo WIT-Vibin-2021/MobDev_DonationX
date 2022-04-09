@@ -33,7 +33,6 @@ class DonateFragment : Fragment() {
                               savedInstanceState: Bundle?): View? {
         _fragBinding = FragmentDonateBinding.inflate(inflater, container, false)
         val root = fragBinding.root
-       // activity?.title = getString(R.string.action_donate)
 
         donateViewModel = ViewModelProvider(this).get(DonateViewModel::class.java)
         donateViewModel.observableStatus.observe(viewLifecycleOwner, Observer {
@@ -51,14 +50,6 @@ class DonateFragment : Fragment() {
         setButtonListener(fragBinding)
         return root;
     }
-
-//    companion object {
-//        @JvmStatic
-//        fun newInstance() =
-//                DonateFragment().apply {
-//                    arguments = Bundle().apply {}
-//                }
-//    }
 
     private fun render(status: Boolean) {
         when (status) {
@@ -98,10 +89,6 @@ class DonateFragment : Fragment() {
                 requireView().findNavController()) || super.onOptionsItemSelected(item)
     }
 
-//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-//        return item.onNavDestinationSelected(navController) || super.onOptionsItemSelected(item)
-//    }
-
     override fun onDestroyView() {
         super.onDestroyView()
         _fragBinding = null
@@ -112,8 +99,8 @@ class DonateFragment : Fragment() {
         val reportViewModel = ViewModelProvider(this).get(ReportViewModel::class.java)
         reportViewModel.observableDonationsList.observe(viewLifecycleOwner, Observer {
                 totalDonated = reportViewModel.observableDonationsList.value!!.sumOf { it.amount }
+                fragBinding.progressBar.progress = totalDonated
+                fragBinding.totalSoFar.text = getString(R.string.total_donated,totalDonated)
         })
-        fragBinding.progressBar.progress = totalDonated
-        fragBinding.totalSoFar.text = getString(R.string.total_donated,totalDonated)
     }
 }

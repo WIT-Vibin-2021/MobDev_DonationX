@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
 import ie.wit.donationx.databinding.FragmentDonationDetailBinding
+import timber.log.Timber
 
 
 class DonationDetailFragment : Fragment() {
@@ -18,11 +19,9 @@ class DonationDetailFragment : Fragment() {
     private var _fragBinding: FragmentDonationDetailBinding? = null
     private val fragBinding get() = _fragBinding!!
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
+                            savedInstanceState: Bundle?
     ): View? {
-
         _fragBinding = FragmentDonationDetailBinding.inflate(inflater, container, false)
         val root = fragBinding.root
 
@@ -31,17 +30,17 @@ class DonationDetailFragment : Fragment() {
         return root
     }
 
-    private fun render(/*donation: DonationModel*/) {
-       // fragBinding.editAmount.setText(donation.amount.toString())
-       // fragBinding.editPaymenttype.text = donation.paymentmethod
+    private fun render() {
         fragBinding.editMessage.setText("A Message")
         fragBinding.editUpvotes.setText("0")
         fragBinding.donationvm = detailViewModel
+        Timber.i("Retrofit fragBinding.donationvm == $fragBinding.donationvm")
     }
 
     override fun onResume() {
         super.onResume()
         detailViewModel.getDonation(args.donationid)
+
     }
 
     override fun onDestroyView() {
